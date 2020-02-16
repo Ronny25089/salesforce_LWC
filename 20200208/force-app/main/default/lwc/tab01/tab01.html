@@ -1,0 +1,49 @@
+<template>
+    <lightning-tabset >
+        <!-- 绑定tab激活事件(onactive)，指向js函数(tabselect) -->
+        <!-- 自定义value属性，方便js获取当前tab类型 -->
+        <lightning-tab value="selectAll" label="全体" onactive={tabselect}></lightning-tab>
+        <lightning-tab value="renewal" label="損保更新" onactive={tabselect}></lightning-tab>
+        <lightning-tab value="insNew" label="損保新規" onactive={tabselect}></lightning-tab>
+        <lightning-tab value="lifeIns" label="生保" onactive={tabselect}></lightning-tab>
+        <lightning-tab value="superIns" label="超保" onactive={tabselect}></lightning-tab>
+        <lightning-tab value="common" label="共通検索条件" onactive={tabselect}></lightning-tab>
+
+        <!-- slds-grid 子标签同行 -->
+        <!-- slds-wrap 空间不足时，子标签自动换行-->
+        <!-- 资料来源:https://www.lightningdesignsystem.com/ -->
+        <div class="slds-grid slds-wrap">
+            <!-- slds-m-around_x-small 标签间距 -->
+            <!-- slds-size_1-of-4 标签size-->
+            <!-- 绑定变量showFeatures.XXX，控制标签显示与否 -->
+            <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.shopCode}>
+                <lightning-input name="ShopCode" label="営業店コード" ></lightning-input>
+            </div>
+            <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.agentCode}>
+                <lightning-input name="AgentCode" label="代理店コード" ></lightning-input>
+            </div>
+            <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.agentSubCode}>
+                <lightning-input name="AgentSubCode" label="代理店枝番" ></lightning-input>
+            </div>
+            <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.contractorCodeGroup}>
+                <lightning-input name="ContractorCodeGroup" label="契約者（団体）コード" ></lightning-input>
+            </div>
+            <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.chargedPerson}>
+                <lightning-input name="ChargedPerson" label="担当（案件）" ></lightning-input>
+            </div>
+            <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.subChargedPerson1}>
+                <lightning-input name="SubChargedPerson1" label="サブ担当１" ></lightning-input>
+            </div>
+            <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.subChargedPerson2}>
+                <lightning-input name="SubChargedPerson2" label="サブ担当２" ></lightning-input>
+            </div>
+            <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.chargedPersonLabel}>
+                <lightning-input name="ChargedPersonLabel" label="担当ラベル" ></lightning-input>
+            </div>
+            <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.chargedBelong}>
+                <lightning-input name="ChargedBelong" label="担当の所属" ></lightning-input>
+            </div>
+        </div>
+    </lightning-tabset>
+
+</template>
