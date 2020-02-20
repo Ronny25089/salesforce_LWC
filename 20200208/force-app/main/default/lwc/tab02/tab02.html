@@ -18,37 +18,39 @@
                     <!-- slds-m-around_x-small 标签间距 -->
                     <!-- slds-size_1-of-4 标签size-->
                     <!-- 绑定变量showFeatures.XXX，控制标签显示与否 -->
-                    <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.shopCode}>
+                    <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.ShopCode}>
                         <lightning-input name="ShopCode" label="営業店コード"></lightning-input>
                     </div>
-                    <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.agentCode}>
+                    <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.AgentCode}>
                         <lightning-input name="AgentCode" label="代理店コード"></lightning-input>
                     </div>
-                    <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.agentSubCode}>
+                    <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.AgentSubCode}>
                         <lightning-input name="AgentSubCode" label="代理店枝番"></lightning-input>
                     </div>
-                    <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.contractorCodeGroup}>
+                    <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.ContractorCodeGroup}>
                         <lightning-input name="ContractorCodeGroup" label="契約者（団体）コード"></lightning-input>
                     </div>
-                    <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.chargedPerson}>
+                    <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.ChargedPerson}>
                         <lightning-input name="ChargedPerson" label="担当（案件）"></lightning-input>
                     </div>
-                    <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.subChargedPerson1}>
+                    <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.SubChargedPerson1}>
                         <lightning-input name="SubChargedPerson1" label="サブ担当１"></lightning-input>
                     </div>
-                    <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.subChargedPerson2}>
+                    <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.SubChargedPerson2}>
                         <lightning-input name="SubChargedPerson2" label="サブ担当２"></lightning-input>
                     </div>
-                    <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.chargedPersonLabel}>
+                    <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.ChargedPersonLabel}>
                         <lightning-input name="ChargedPersonLabel" label="担当ラベル"></lightning-input>
                     </div>
-                    <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.chargedBelong}>
+                    <div class="slds-m-around_x-small slds-size_1-of-4" if:true={showFeatures.ChargedBelong}>
                         <lightning-input name="ChargedBelong" label="担当の所属"></lightning-input>
                     </div>
                 </div>
             </div>
             <lightning-button icon-name="utility:search" variant="brand" label="Search" onclick={searchRecord} class="slds-m-left_x-small"></lightning-button>
         </div>
+
+        <c-result-table list={dataResults} ></c-result-table>
     </lightning-tabset>
 
 </template>

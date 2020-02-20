@@ -6,9 +6,6 @@
             "c/helloWorld": [
                 "helloWorld/helloWorld.js"
             ],
-            "c/result_table": [
-                "result_table/result_table.js"
-            ],
             "c/tab": [
                 "tab/tab.js"
             ],
@@ -17,6 +14,9 @@
             ],
             "c/tab02": [
                 "tab02/tab02.js"
+            ],
+            "c/resultTable": [
+                "resultTable/resultTable.js"
             ]
         }
     },
