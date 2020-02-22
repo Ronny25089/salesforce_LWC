@@ -1,3 +1,4 @@
+/* eslint-disable guard-for-in */
 /* eslint-disable no-console */
 import { LightningElement, track } from 'lwc';
 
@@ -114,7 +115,7 @@ export default class App extends LightningElement {
      * 获取当前页面有效的所有输入框:<lightning-input></lightning-input>
      * 组合成Map型数据，调用Apex的findOpportunity(Map<String,String> keyMap)
      * 将Apex方法中执行的SOQL结果赋值给dataResults
-     * 通过子页面中声明的@api公共变量，传递给子页面resutlTable.html显示结果数据。
+     * 通过子页面中声明的@api公共变量，传递给子页面resultTable.html显示结果数据。
      */
     searchRecord() {
         // 检索键Map
@@ -131,10 +132,28 @@ export default class App extends LightningElement {
         }
         // 调用Apex的findOpportunity(Map<String,String> keyMap)
         // 获取结果集
+        // 参照关系
+        let chars = ['ChargedPerson__c', 'SubChargedPerson1__c', 'SubChargedPerson2__c'];
 
         findOpportunity({ keyMap }).then(result => {
-                console.log("dataResults", result);
-                this.dataResults = result;
+                console.log("dataResults：", result);
+                let outputList = [];
+                // There is no way to access data like <foo.bar.baz>
+                // https://salesforce.stackexchange.com/questions/193273/winter-18-lightningdatatable-does-not-get-values-from-a-parent-record?noredirect=1#comment292030_193273
+                for (let i = 0; i < result.length; i++) {
+                    let opp = {};
+                    for (let key in result[i]) {
+                        if (chars.includes(key)) {
+                            // console.log("key", key);
+                            opp[key] = result[i][key.replace('c', 'r')].Name;
+                        } else {
+                            opp[key] = result[i][key];
+                        }
+                    }
+                    outputList.push(opp);
+
+                }
+                this.dataResults = outputList;
             })
             .catch(error => {
                 console.log("error", error);

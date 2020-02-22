@@ -1,0 +1,10 @@
+<template>
+    <div style="height: 300px;">
+        {record}
+        <lightning-datatable
+                key-field="id"
+                data={list.data}
+                columns={columns}>
+        </lightning-datatable>
+    </div>    
+</template>

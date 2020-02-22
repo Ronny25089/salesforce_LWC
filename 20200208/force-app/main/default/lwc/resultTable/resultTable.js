@@ -10,8 +10,8 @@ const columns = [
     { label: '代理店枝番', fieldName: 'AgentSubCode__c' },
     { label: '契約者（団体）コード', fieldName: 'ContractorCodeGroup__c' },
     { label: '担当（案件）', fieldName: 'ChargedPerson__c' },
-    { label: 'サブ担当１', fieldName: 'SubChargedPerson1__r.Name' },
-    { label: 'サブ担当２', fieldName: 'SubChargedPerson2__r.Name' },
+    { label: 'サブ担当１', fieldName: 'SubChargedPerson1__c' },
+    { label: 'サブ担当２', fieldName: 'SubChargedPerson2__c' },
     { label: '担当ラベル', fieldName: 'ChargedPersonLabel__c' },
     { label: '担当の所属', fieldName: 'ChargedBelong__c' }
 ];

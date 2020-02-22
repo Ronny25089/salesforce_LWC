@@ -17,6 +17,9 @@
             ],
             "c/resultTable": [
                 "resultTable/resultTable.js"
+            ],
+            "c/result_table": [
+                "result_table/result_table.js"
             ]
         }
     },

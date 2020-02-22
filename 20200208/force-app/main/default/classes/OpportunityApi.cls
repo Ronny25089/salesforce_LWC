@@ -48,7 +48,7 @@ public with sharing class OpportunityApi {
                ',SubChargedPerson2__r.Name ' +
                ',ChargedPersonLabel__c ' +
                ',ChargedBelong__c ' +
-            'FROM opportunity ';
+            'FROM opportunity';
 
         // 如果有条件，将条件与SOQL的query文拼接1
         if (conditonStr != ''){
